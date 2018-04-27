@@ -36,8 +36,8 @@ and test-challenge data. There is no overlap between the three sets.
     ------------------------------------------------------------------------------------------------
      Dataset                           Training              Validation            Test-Challenge
     ------------------------------------------------------------------------------------------------
-    Multiple object tracking           56 clips               7 clips                16 clips
-                                     24,201 frames          2,819 frames           6,333 frames
+     Multiple object tracking           56 clips               7 clips                16 clips
+                                      24,201 frames          2,819 frames           6,333 frames
     ------------------------------------------------------------------------------------------------
     
 The challenge aims to recover the object trajectories with (Task 4B) or without (Task 4A) the detection results in each video frame. Notably, in the VisDrone2018 Challenge, we only consider five object categories in multi-object tracking, i.e., car, bus, truck, pedestrian, and van. We manually annotate the bounding boxes of different objects and ignored regiones in each video frame. Annotations on the training and validation sets are publicly available.

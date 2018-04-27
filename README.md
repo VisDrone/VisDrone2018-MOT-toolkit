@@ -65,7 +65,7 @@ MOT Submission Format
 
 Submission of the results will consist of TXT files with one line per predicted object.It looks as follows:
 
-     <frame_index>,<target_id>,<bbox_left>,<bbox_top>,<bbox_width>,<bbox_height>,<score>,<object_category>,<truncation>,<occlusion>
+        <frame_index>,<target_id>,<bbox_left>,<bbox_top>,<bbox_width>,<bbox_height>,<score>,<object_category>,<truncation>,<occlusion>
 
      -----------------------------------------------------------------------------------------------------------------------------------
            Name	                                      Description
@@ -107,9 +107,10 @@ The sample submission of the GOG tracker can be found in our website.
 References
 
 [1] A. Milan, L. Leal-Taixe, K. Schindler, D. Cremers, S. Roth, and I. Reid, "Multiple Object Tracking Benchmark 2016", https://motchallenge.net/results/MOT16/.
+
 [2] E. Park, W. Liu, O. Russakovsky, J. Deng, F.-F. Li, and A. Berg, "Large Scale Visual Recognition Challenge 2017", http://imagenet.org/challenges/LSVRC/2017
 
-Version history
+Version History
 
 1.0.0 - Apr 27, 2018
   - initial release

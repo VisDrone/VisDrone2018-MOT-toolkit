@@ -84,7 +84,7 @@ Submission of the results will consist of TXT files with one line per predicted 
 	
         <bbox_height>	  The height in pixels of the predicted object bounding box
 	
-         <score>	          The score in the DETECTION file indicates the confidence of the predicted bounding box enclosing 
+          <score>	          The score in the DETECTION file indicates the confidence of the predicted bounding box enclosing 
 	                          an object instance.
                               The score in GROUNDTRUTH file is set to 1 or 0. 1 indicates the bounding box is considered in evaluation, 
 			          while 0 indicates the bounding box will be ignored.

@@ -53,15 +53,13 @@ The notes for the folders:
 * main functions
 	* evalMOT.m is the main function to evaluate your tracker
 	    
-	    -put the source codes in ./trackers/ (please refer the source codes of GOG tracker)
-	  
-            -modify the dataset path and result path
-	  
-            -use "isSeqDisplay" to show the groundtruth and detections
-	  
-            -use "isNMS" and nmsThre to conduct NMS 
-	  
-            -select the evaluated task, i.e, Task4a without detection results, Task4b with detection results
+	    * put the source codes in ./trackers/ (please refer the source codes of GOG tracker) 
+	    
+	    * modify the dataset path and result path
+	    
+	    * use "isSeqDisplay" to show the groundtruth and detections 
+	    
+	    * select the evaluated task, i.e, Task4a without detection results, Task4b with detection results
         
   * evaluateTrackA.m is the main function to evaluate your tracker using the measures in Task4a without detection results.   
   

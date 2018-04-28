@@ -59,11 +59,11 @@ The notes for the folders:
 	    
 	    * use "isSeqDisplay" to show the groundtruth and detections 
 	    
-	    * select the evaluated task, i.e, Task4a without detection results, Task4b with detection results
+	    * select the evaluated task, i.e, Task 4A without detection results, Task 4B with detection results
         
-  * evaluateTrackA.m is the main function to evaluate your tracker using the measures in Task4a without detection results.   
+  * evaluateTrackA.m is the main function to evaluate your tracker using the measures in Task 4A without detection results.   
   
-  * evaluateTrackB.m is the main function to evaluate your tracker using the measures in Task4b with the Faster RCNN detection results.    
+  * evaluateTrackB.m is the main function to evaluate your tracker using the measures in Task 4B with the Faster RCNN detection results.    
   
 MOT Submission Format
 

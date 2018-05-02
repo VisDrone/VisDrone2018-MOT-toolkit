@@ -36,7 +36,6 @@ resMat = cell(1, numSeqs);
 allMets = [];
 tendallMets = [];
 allresult = [];
-flagGt = true;
 
 for ind = 1:numSeqs
     % parse groundtruth
@@ -49,13 +48,17 @@ for ind = 1:numSeqs
     assert(isdir(sequenceFolder), 'Sequence folder %s missing.\n', sequenceFolder);
     gtFilename = fullfile(gtPath, [allSequences{ind} '.txt']);
     if(~exist(gtFilename, 'file'))
-        disp('No annotation files is provided for evaluation.');
-        flagGt = false;
-        break;
+        error('No annotation files is provided for evaluation.');
     end
     gtdata = dlmread(gtFilename);
     % process groudtruth    
-    gtdata = dropObjects(gtdata, gtdata, imgHeight, imgWidth);
+    clean_gtFilename = fullfile(gtPath, [allSequences{ind} '_clean.txt']);
+    if(~exist(clean_gtFilename, 'file'))   
+        gtdata = dropObjects(gtdata, gtdata, imgHeight, imgWidth);
+        dlmwrite(clean_gtFilename, gtdata);
+    else
+        gtdata = dlmread(clean_gtFilename);
+    end
     % break the groundtruth trajetory with multiple object categories
     gtdata = breakGts(gtdata);   
     gtMat{ind} = gtdata;
@@ -90,27 +93,25 @@ for ind = 1:numSeqs
     allresult = cat(1, allresult, tendmetsBenchmark);
 end
 
-if(flagGt)
-    %% calculate overall scores
-    metsBenchmark = evaluateBenchmark(tendallMets, world);
-    allresult = cat(1, allresult, metsBenchmark);
-    fprintf('\n');
-    fprintf(' ********************* Your VisDrone2018 Results *********************\n');
-    printMetrics(metsBenchmark);
-    fprintf('\n');
+%% calculate overall scores
+metsBenchmark = evaluateBenchmark(tendallMets, world);
+allresult = cat(1, allresult, metsBenchmark);
+fprintf('\n');
+fprintf(' ********************* Your VisDrone2018 Results *********************\n');
+printMetrics(metsBenchmark);
+fprintf('\n');
 
-    %% calculate overall scores for each object category
-    for k = 1:length(evalClassSet)
-        className = evalClassSet{k};
-        cateallMets = [];
-        curInd = k:length(evalClassSet):length(tendallMets);
-        for i = 1:length(curInd)
-            cateallMets = [cateallMets, tendallMets(curInd(i))];
-        end
-        metsCategory = evaluateBenchmark(cateallMets, world);
-        metsCategory(isnan(metsCategory)) = 0;
-        fprintf('evaluating tracking %s:\n', className); 
-        printMetrics(metsCategory); 
-        fprintf('\n');
+%% calculate overall scores for each object category
+for k = 1:length(evalClassSet)
+    className = evalClassSet{k};
+    cateallMets = [];
+    curInd = k:length(evalClassSet):length(tendallMets);
+    for i = 1:length(curInd)
+        cateallMets = [cateallMets, tendallMets(curInd(i))];
     end
+    metsCategory = evaluateBenchmark(cateallMets, world);
+    metsCategory(isnan(metsCategory)) = 0;
+    fprintf('evaluating tracking %s:\n', className); 
+    printMetrics(metsCategory); 
+    fprintf('\n');
 end

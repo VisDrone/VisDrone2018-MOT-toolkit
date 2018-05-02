@@ -118,7 +118,7 @@ References
 Version History
 
 1.0.1 - May 2, 2018
-  - fix the bugs in evaluating each object category
+  - fix the bugs in evaluating each object category
   - improve the evaluation speed
   
 1.0.0 - Apr 27, 2018

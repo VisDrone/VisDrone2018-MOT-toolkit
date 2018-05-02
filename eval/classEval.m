@@ -16,5 +16,11 @@ for k = 1:length(evalClassSet)
         allMets(ind).IDmeasures = metsID;
         allMets(ind).additionalInfo = additionalInfo;
         tendMets(k) = allMets(ind);
+    else
+        allMets(ind).name = strcat(sequenceName, '(', className, ')');
+        allMets(ind).m    = [];
+        allMets(ind).IDmeasures = [];
+        allMets(ind).additionalInfo = [];
+        tendMets(k) = allMets(ind);        
     end
 end

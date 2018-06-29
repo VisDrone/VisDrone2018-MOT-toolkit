@@ -1,6 +1,6 @@
 clc;
 clear all;close all;
-warning off; %#ok<WNOFF>
+warning off all;
 
 % add toolboxes
 addpath('display');

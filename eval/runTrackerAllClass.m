@@ -57,4 +57,4 @@ end
 
 % calculate the speed
 speed = numfrs/speed;
-disp(['Tracking completed. The runing speed of ' trackerName ' tracker is ' num2str(round(speed,-2)) 'fps.']);
+disp(['Tracking completed. The runing speed of ' trackerName ' tracker is ' num2str(roundn(speed,-2)) 'fps.']);

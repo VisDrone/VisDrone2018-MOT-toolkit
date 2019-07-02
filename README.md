@@ -116,7 +116,9 @@ References
 [2] E. Park, W. Liu, O. Russakovsky, J. Deng, F.-F. Li, and A. Berg, "Large Scale Visual Recognition Challenge 2017", http://imagenet.org/challenges/LSVRC/2017
 
 Version History
-
+1.0.2 - Jul 1, 2019
+  - fix the bugs in droping objects in ignored regions
+  
 1.0.1 - May 2, 2018
   - fix the bugs in evaluating each object category
   - improve the evaluation speed

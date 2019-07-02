@@ -17,7 +17,7 @@ gt_track_img_ids = cell(1,num_vids);
 gt_track_generated = cell(1,num_vids);
 num_track_per_class = zeros(1,10);
 
-fprintf('evaluating VisDrone2018 Task4a :: loading groundtruth\n');
+fprintf('evaluating VisDrone2019 Task4 :: loading groundtruth\n');
 for v = 1:num_vids
     sequenceName = char(allSequences(v));
     sequenceFolder = fullfile(seqPath, sequenceName, filesep);
@@ -96,7 +96,7 @@ for v = 1:num_vids
     end
 end
 
-fprintf('evaluating VisDrone2018 Task4a :: loading predictions\n');
+fprintf('evaluating VisDrone2019 Task4 :: loading predictions\n');
 track_img_ids = cell(1,num_vids);
 track_labels = cell(1,num_vids);
 track_confs = cell(1,num_vids);
@@ -145,7 +145,7 @@ end
 tp_cell = cell(1,num_vids);
 fp_cell = cell(1,num_vids);
 
-fprintf('evaluating VisDrone2018 Task4a :: accumulating\n');
+fprintf('evaluating VisDrone2019 Task4 :: accumulating\n');
 num_track_thr = length(defaultTrackThr);
 % iterate over videos
 for v = 1:num_vids    

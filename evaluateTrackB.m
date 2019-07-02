@@ -50,11 +50,11 @@ for ind = 1:numSeqs
     if(~exist(gtFilename, 'file'))
         error('No annotation files is provided for evaluation.');
     end
-    gtdata = dlmread(gtFilename);
+    gtdata_ori = dlmread(gtFilename);
     % process groudtruth    
     clean_gtFilename = fullfile(gtPath, [allSequences{ind} '_clean.txt']);
     if(~exist(clean_gtFilename, 'file'))   
-        gtdata = dropObjects(gtdata, gtdata, imgHeight, imgWidth);
+        gtdata = dropObjects(gtdata_ori, gtdata_ori, imgHeight, imgWidth);
         dlmwrite(clean_gtFilename, gtdata);
     else
         gtdata = dlmread(clean_gtFilename);
@@ -79,7 +79,7 @@ for ind = 1:numSeqs
         error('Invalid submission. Result file for sequence %s is missing or invalid\n', resFilename);
     end  
     % process result
-    resdata = dropObjects(resdata, gtdata, imgHeight, imgWidth);
+    resdata = dropObjects(resdata, gtdata_ori, imgHeight, imgWidth);
     resdata(resdata(:,1) > max(gtMat{ind}(:,1)),:) = []; % clip result to gtMaxFrame 
     resMat{ind} = resdata;
     % split the result for each object category    
@@ -97,7 +97,7 @@ end
 metsBenchmark = evaluateBenchmark(tendallMets, world);
 allresult = cat(1, allresult, metsBenchmark);
 fprintf('\n');
-fprintf(' ********************* Your VisDrone2018 Results *********************\n');
+fprintf(' ********************* Your VisDrone2019 Results *********************\n');
 printMetrics(metsBenchmark);
 fprintf('\n');
 

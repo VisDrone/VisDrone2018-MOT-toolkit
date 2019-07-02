@@ -4,7 +4,7 @@ newdet = [];
 numFr = max(det(:,1));
 for fr = 1:numFr
     % parse objects
-    idxFr = det(:,1) == fr & (det(:, 8) ~= 0 | det(:, 8) ~= 11);
+    idxFr = det(:,1) == fr & (det(:, 8) ~= 0 & det(:, 8) ~= 11);
     curdet = det(idxFr,:);
     % parse ignored regions
     idxIgr = gt(:,1) == fr & (gt(:, 8) == 0 | gt(:,8) == 11);
